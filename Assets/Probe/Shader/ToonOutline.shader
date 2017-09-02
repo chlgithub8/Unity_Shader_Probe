@@ -1,7 +1,4 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
-
-Shader "Demon/Unlit/ToonOutline"
+﻿Shader "Demon/Unlit/ToonOutline"
 {
 	Properties
 	{
@@ -92,7 +89,7 @@ Shader "Demon/Unlit/ToonOutline"
 		fixed4 frag_n (v2f_n i) : SV_Target
 		{
 			fixed3 worldNormal = normalize(i.worldNormal);
-			fixed3 worldLightDir = normalize(UnityWorldSpaceViewDir(i.worldPos));
+			fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.worldPos));
 			fixed3 worldViewDir = normalize(UnityWorldSpaceViewDir(i.worldPos));
 			fixed3 worldHalfDir = normalize(worldViewDir + worldLightDir);
 
@@ -108,7 +105,7 @@ Shader "Demon/Unlit/ToonOutline"
 
 			fixed spec = dot(worldNormal, worldHalfDir);
 			//抗锯齿处理
-			fixed w = fwidth(spec) * 2.0;
+			fixed w = fwidth(spec) * 3.0;
 			spec = lerp(0, 1, smoothstep(-w, w, spec + _SpecularScale - 1.0));
 
 			fixed3 specular = _Specular.rgb * spec * step(0.0001, _SpecularScale);
@@ -140,4 +137,5 @@ Shader "Demon/Unlit/ToonOutline"
 			ENDCG
 		}
 	}
+	Fallback "Diffuse"
 }
