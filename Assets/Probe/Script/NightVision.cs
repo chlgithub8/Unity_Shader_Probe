@@ -7,6 +7,7 @@ using UnityStandardAssets.ImageEffects;
 public class NightVision : PostEffectsBase
 {
 	public Color _color = new Color (0, 1, 0, 1);
+	public Texture _noiseTexture;
 	public Shader _nightVisionShader;
 	private Material _nightVisionMaterial;
 
@@ -30,6 +31,8 @@ public class NightVision : PostEffectsBase
 
 		if (_nightVisionMaterial != null) {
 			_nightVisionMaterial.SetColor ("_Color", _color);
+			if (_noiseTexture != null)
+				_nightVisionMaterial.SetTexture ("_Noise", _noiseTexture);
 			Graphics.Blit (src, dest, _nightVisionMaterial);			
 		}
 	}
