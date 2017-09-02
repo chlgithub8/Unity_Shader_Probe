@@ -43,7 +43,7 @@
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv.xy = TRANSFORM_TEX(v.uv, _MainTex);
-				o.uv.zw = TRANSFORM_TEX(v.noise, _Noise) + float2 (0, cos(_Time.w)) * 0.001;
+				o.uv.zw = TRANSFORM_TEX(v.noise, _Noise) + float2 (0, cos(_Time.w)) * 0.002;
 				return o;
 			}
 
@@ -62,7 +62,9 @@
 				//和上面的等效
 				dis = lerp(1.0, 0, smoothstep(0.35, 0.55, dis));	
 
-				fixed4 tex = tex2D(_MainTex, i.uv.xy) * tex2D(_Noise, i.uv.zw);
+				fixed4 tex = tex2D(_MainTex, i.uv.xy); 
+				fixed4 noise = tex2D(_Noise, i.uv.zw);
+				tex = lerp(tex, noise, (cos(_Time.y) + 1.1) * 0.12);
 
 				fixed grayscale = (tex.r + tex.g + tex.b) * 0.333 * 1.5;
 				tex = fixed4(grayscale, grayscale, grayscale, 1.0);
