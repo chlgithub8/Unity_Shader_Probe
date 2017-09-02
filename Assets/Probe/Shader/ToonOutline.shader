@@ -1,4 +1,4 @@
-﻿Shader "Demon/Unlit/ToonOutline"
+﻿Shader "Demon/ToonOutline"
 {
 	Properties
 	{
