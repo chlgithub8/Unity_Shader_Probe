@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: a4ce80a77646d604c945c4218ee14e1d
-timeCreated: 1504314187
-licenseType: Pro
+guid: 521c473bd713eff468f556acaf453a9c
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -24,8 +22,8 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: 1
-  maxTextureSize: 2048
+  textureFormat: -1
+  maxTextureSize: 8192
   textureSettings:
     filterMode: -1
     aniso: -1
@@ -51,7 +49,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -59,15 +57,15 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 256
-    textureFormat: 12
+    maxTextureSize: 2048
+    textureFormat: 10
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
   - buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -75,7 +73,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
