@@ -52,8 +52,9 @@ Shader "Demon/Earth"
 				output.uv.xy = input.uv - cloudSpeed;
 				output.uv.zw = input.uv + cloudSpeed;
 
-				float3 lightDir = WorldSpaceLightDir(input.pos);
-				output.atmosphere.w = saturate(dot(lightDir, input.normal) * 1.3);			
+				float3 lightDir = normalize(UnityWorldSpaceLightDir(input.pos));
+				float3 normalDir = normalize(UnityObjectToWorldNormal(input.normal));
+				output.atmosphere.w = saturate(dot(lightDir, normalDir) * 1.3);			
 				
 				half3 viewDir = normalize(ObjSpaceViewDir(input.pos));
 				output.atmosphere.xyz = _AtmosphereColor.rgb * pow(1 - saturate(dot(viewDir, input.normal)), _AtmospherePow) * _AtmosphereMultiply;
